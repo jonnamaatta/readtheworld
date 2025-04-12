@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart'; 
 import 'screens/welcome_screen.dart'; 
 import 'screens/welcome_start_screen.dart'; 
+import 'screens/choose_country_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       getPages: [ 
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
         GetPage(name: '/welcome/start', page: () => const WelcomeStartScreen()),
-
+        GetPage(name: '/welcome/choosecountry', page: () => const ChooseCountryScreen()),
         // ADD HOME GetPage(name: '/home', page: () => const HomeScreen()),
       ],
     );

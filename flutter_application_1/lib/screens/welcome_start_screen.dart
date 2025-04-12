@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; 
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeStartScreen extends StatelessWidget {
@@ -7,7 +7,7 @@ class WelcomeStartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isWideScreen = MediaQuery.of(context).size.width > 600; 
+    final isWideScreen = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5EFE6),
@@ -18,22 +18,26 @@ class WelcomeStartScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min, 
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'Where do you want to start your journey?',
-                      style: GoogleFonts.merriweather(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 41, 113, 185), 
+                    // Add more padding on the sides of the text
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40.0),  // Extra padding on the sides
+                      child: Text(
+                        'Where do you want to start your journey?',
+                        style: GoogleFonts.merriweather(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 41, 113, 185),
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center, 
                     ),
                     const SizedBox(height: 60),
                     if (isWideScreen)
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center, 
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildButtonWithText(
@@ -41,10 +45,10 @@ class WelcomeStartScreen extends StatelessWidget {
                             'Choose a country',
                             'Start your adventure\nwhere you desire ✨',
                             () {
-                              // TODO: navigate to ChooseCountryScreen
+                              Get.toNamed('/welcome/choosecountry');
                             },
                           ),
-                          const SizedBox(width: 40), 
+                          const SizedBox(width: 40),
                           _buildButtonWithText(
                             context,
                             'Pick for me',
@@ -63,7 +67,7 @@ class WelcomeStartScreen extends StatelessWidget {
                             'Choose a country',
                             'Start your adventure\nwhere you desire ✨',
                             () {
-                             // TODO: navigate to ChooseCountryScreen
+                              Get.toNamed('/welcome/choosecountry');
                             },
                           ),
                           const SizedBox(height: 40),
@@ -90,18 +94,18 @@ class WelcomeStartScreen extends StatelessWidget {
   Widget _buildButtonWithText(
       BuildContext context, String buttonText, String description, VoidCallback onPressed) {
     return SizedBox(
-      width: 200, 
+      width: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 56, 136, 255), 
-              foregroundColor: Colors.white, 
+              backgroundColor: const Color.fromARGB(255, 56, 136, 255),
+              foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 32.0),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0), 
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
             child: Text(
@@ -117,7 +121,7 @@ class WelcomeStartScreen extends StatelessWidget {
             description,
             style: GoogleFonts.dmSans(
               fontSize: 14,
-              color: const Color(0xFF2C3E50), 
+              color: const Color(0xFF2C3E50),
             ),
             textAlign: TextAlign.center,
           ),
